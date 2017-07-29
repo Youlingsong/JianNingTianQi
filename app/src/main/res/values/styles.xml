@@ -1,0 +1,64 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="RoundWhiteStokenButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/click_btn_white_stroke</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="RoundBlueButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/click_btn_blue_round</item>
+        <item name="android:textColor">@color/general_text_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 白底圆角蓝色文字 -->
+    <style name="RoundWhiteButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/click_btn_white_round</item>
+        <item name="android:textColor">@color/general_text_blue</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- 用户名、手机号输入框 -->
+    <style name="PhoneNumberInputStyle" parent="OneLineEditText">
+        <item name="android:maxLength">11</item>
+        <item name="android:inputType">number</item>
+    </style>
+    <!-- 验证码输入框 -->
+    <style name="InvialidCodeInputStyle" parent="OneLineEditText">
+        <item name="android:maxLength">6</item>
+        <item name="android:inputType">number</item>
+        <item name="android:digits">0123456789</item>
+        <item name="android:hint">@string/reigist_input_hint</item>
+    </style>
+    <!-- 单行输入框样式 -->
+    <style name="OneLineEditText">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:lines">1</item>
+        <item name="android:textColorHint">@color/general_text_dimmer</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@null</item>
+    </style>
+    <!-- 密码框 -->
+    <style name="PasswordStyle" parent="OneLineEditText">
+        <item name="android:maxLength">20</item>
+        <item name="android:digits">0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM!@#$%^*(),./</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+</resources>

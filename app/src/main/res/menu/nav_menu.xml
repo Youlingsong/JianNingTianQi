@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/it_tianqi"
+            android:icon="@drawable/taocan"
+            android:title="@string/tianqi" />
+        <item
+            android:id="@+id/it_music"
+            android:icon="@drawable/fuwu"
+            android:title="@string/music" />
+        <item
+            android:id="@+id/it_about"
+            android:icon="@drawable/exit"
+            android:title="@string/about_us" />
+
+        <item
+            android:id="@+id/it_fuwu"
+            android:icon="@drawable/lianxi"
+            android:title="@string/service_tiaokuan" />
+        <item
+            android:id="@+id/it_liulanqi"
+            android:icon="@drawable/exit"
+            android:title="@string/liulanqi" />
+
+    </group>
+</menu>

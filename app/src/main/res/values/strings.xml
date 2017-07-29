@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">JianNingTianQi</string>
+    <string name="register">注册</string>
+    <string name="login">登录</string>
+    <string name="browsing">随便逛逛</string>
+    <string name="tianqi">天气预报</string>
+    <string name="music">飞歌一首</string>
+    <string name="liulanqi">退出</string>
+    <string name="about_us">涨姿势</string>
+    <string name="service_tiaokuan">服务条款</string>
+    <string name="input_phone_hint">请输入手机号</string>
+    <string name="reigist_input_hint">请输入验证码</string>
+    <string name="get_verify_code">获取验证码</string>
+    <string name="input_new_pwd_hint">请输入6&#8211;20位密码</string>
+    <string name="next_step">下一步</string>
+    <string name="agree_protocol">我同意《用户协议》</string>
+</resources>

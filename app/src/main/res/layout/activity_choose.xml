@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="@color/shouye_background"
+        android:paddingLeft="10dp"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:padding="5dp"
+            android:id="@+id/iv_menus"
+            android:src="@drawable/navigationbarback"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:text="套餐购买"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <ListView
+        android:background="@color/orange"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:scrollbars="none"
+        android:id="@+id/list_view">
+
+    </ListView>
+
+</LinearLayout>

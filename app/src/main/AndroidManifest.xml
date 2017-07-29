@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lenovo.jianningtianqi"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+
+    <application
+
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.SplashActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".activity.MylocationActivity"></activity>
+        <activity android:name=".activity.ShouyeActivity"></activity>
+        <activity android:name=".activity.ServiceActivity"></activity>
+        <activity android:name=".activity.StartActivity"></activity>
+        <activity android:name=".activity.ResigstActivity"></activity>
+        <activity android:name=".activity.WebshowActivity"></activity>
+        <activity android:name=".activity.MusicActivity"></activity>
+        <activity android:name=".activity.WeatherActivity"></activity>
+        <activity android:name=".activity.MyBaiduLocationActivity"></activity>
+
+        <service
+            android:name=".service.MusicService"
+            android:exported="true"
+            android:process=":remote"></service>
+        <service android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
+
+
+
+        <!--百度地图的key和权限设置-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="30TGlB8vxMEe9HwgGMKznYqpzPnL0F91" />
+
+
+        <!-- 这个权限用于进行网络定位-->
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+        <!-- 这个权限用于访问GPS定位-->
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+        <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+        <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+        <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+        <!-- 用于读取手机当前的状态-->
+        <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+        <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+        <!-- 访问网络，网络定位需要上网-->
+        <uses-permission android:name="android.permission.INTERNET" />
+        <!-- SD卡读取权限，用户写入离线定位数据-->
+        <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+
+
+
+        <!--QQ授权必须要声明的两个Activity，还有open_sdk_r5756.jar和mta_sdk_1.6.2.jar两个jar包-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106300050" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+
+        <!-- 设置环信应用的appkey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="easemob-demo#chatdemoui" />
+        <!-- 设置环信应用的AppKey -->
+
+
+        <!-- 声明SDK所需的service SDK核心功能 -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <!-- 友盟推送 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="597b4135f29d980504001e30">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="357c22ab5dd2f63503742c8726705a7c">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" />
+
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    //环信权限
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 可选filter  <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
+
+
+
+
+</manifest>
