@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">JianNingTianQi</string>
+    <string name="app_name">简凝</string>
     <string name="register">注册</string>
-    <string name="login">登录</string>
-    <string name="browsing">随便逛逛</string>
+    <string name="login">QQ分享</string>
+    <string name="browsing">QQ登录</string>
     <string name="tianqi">天气预报</string>
     <string name="music">飞歌一首</string>
     <string name="liulanqi">退出</string>

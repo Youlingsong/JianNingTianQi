@@ -42,6 +42,7 @@ public class QqFragment extends Fragment {
     @BindView(R.id.ll_next)
     LinearLayout llNext;
     Unbinder unbinder;
+    public  static boolean flag=true;
 
     @Nullable
     @Override
@@ -50,17 +51,24 @@ public class QqFragment extends Fragment {
         banner = (Banner) view.findViewById(R.id.banner);
         tv_namer = (TextView) view.findViewById(R.id.tv_namer);
         tv_titler = (TextView) view.findViewById(R.id.tv_titler);
-
+        initEvent();
         initView();
         initData();
         unbinder = ButterKnife.bind(this, view);
         return view;
+
+
+
     }
 
     public void initView() {
         for (int i = 0; i < 10; i++) {
-            imageList.add(R.drawable.start_bg);
+            if(flag==true) {
+                imageList.add(R.drawable.start_bg);
+            }
+
         }
+        flag=false;
         String[] titles = new String[]{"十大星级品牌联盟，全场2折起", "全场2折起", "十大星级品牌联盟", "嗨购5折不要停", "12趁现在", "嗨购5折不要停，12.12趁现在", "实打实大顶顶顶顶"};
         banner.setBannerStyle(Banner.CIRCLE_INDICATOR_TITLE);
 

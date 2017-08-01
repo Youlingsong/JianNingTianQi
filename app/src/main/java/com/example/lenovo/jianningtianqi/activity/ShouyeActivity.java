@@ -3,17 +3,18 @@ package com.example.lenovo.jianningtianqi.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -22,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.example.lenovo.jianningtianqi.MainActivity;
 import com.example.lenovo.jianningtianqi.MyApplication;
 import com.example.lenovo.jianningtianqi.R;
+import com.example.lenovo.jianningtianqi.fragment.JQFragment;
 import com.example.lenovo.jianningtianqi.fragment.QqFragment;
 import com.example.lenovo.jianningtianqi.fragment.WxFragment;
 import com.example.lenovo.jianningtianqi.fragment.WxFragments;
@@ -29,15 +31,21 @@ import com.example.lenovo.jianningtianqi.fragment.WxFragments;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by lenovo on 2017/7/13.
  */
 
-public class ShouyeActivity extends AppCompatActivity {
+public class ShouyeActivity extends BaseActivity {
+    @BindView(R.id.ll_content)
+    LinearLayout llContent;
+    @BindView(R.id.tv_fristtoast)
+    TextView tvFristtoast;
     private QqFragment fragment;
     private WxFragments wxFragments;
     private WxFragment wxFragment;
+    private JQFragment jqFragment;
 
 
     @BindView(R.id.nav_view)
@@ -56,7 +64,7 @@ public class ShouyeActivity extends AppCompatActivity {
     @BindView(R.id.bottom_navigation_bar)
     BottomNavigationBar bottomNavigationBar;
     public TextView tv_navname;
-    public de.hdodenhof.circleimageview.CircleImageView cimage;
+    public CircleImageView cimage;
 
 
     @Override
@@ -68,8 +76,6 @@ public class ShouyeActivity extends AppCompatActivity {
 
         initData();
         initEvent();
-
-
 
 
         // bottomNavigationBar.setTabSelectedListener(this);
@@ -148,13 +154,11 @@ public class ShouyeActivity extends AppCompatActivity {
 
         fragment = new QqFragment();
         wxFragments = new WxFragments();
-        wxFragment=new WxFragment();
-       View headerview= navView.getHeaderView(0);
-    tv_navname =(TextView)headerview.findViewById(R.id.tv_navname);
-    cimage=(de.hdodenhof.circleimageview.CircleImageView)headerview.findViewById(R.id.nav_ci);
-
-
-
+        wxFragment = new WxFragment();
+        jqFragment = new JQFragment();
+        View headerview = navView.getHeaderView(0);
+        tv_navname = (TextView) headerview.findViewById(R.id.tv_navname);
+        cimage = (CircleImageView) headerview.findViewById(R.id.nav_ci);
 
 
     }
@@ -164,7 +168,7 @@ public class ShouyeActivity extends AppCompatActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         Intent intent = getIntent();
         String sname = intent.getStringExtra("name");
-        String spic=intent.getStringExtra("pic");
+        String spic = intent.getStringExtra("pic");
         Glide.with(MyApplication.getContext()).load(spic).into(cimage);
         name.setText(sname);
         tv_navname.setText(sname);
@@ -184,7 +188,7 @@ public class ShouyeActivity extends AppCompatActivity {
 
 
                     case R.id.it_about:
-                         Intent aboutTheme = new Intent(ShouyeActivity.this, MylocationActivity.class);
+                        Intent aboutTheme = new Intent(ShouyeActivity.this, MylocationActivity.class);
                         startActivity(aboutTheme);
                         break;
 
@@ -214,11 +218,11 @@ public class ShouyeActivity extends AppCompatActivity {
         bottomNavigationBar.setInActiveColor(R.color.colorPrimaryDark);
 
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.adress_grey, "位置"))
+                .addItem(new BottomNavigationItem(R.drawable.adress_grey, "QQ小冰"))
                 .addItem(new BottomNavigationItem(R.drawable.wallet_grey, "发现"))
-                .addItem(new BottomNavigationItem(R.drawable.weibo_red, "爱好"))
-                .addItem(new BottomNavigationItem(R.drawable.wetchat_red, "图书"))
-                .setFirstSelectedPosition(0)
+                .addItem(new BottomNavigationItem(R.drawable.weibo_red, "开心一刻"))
+                .addItem(new BottomNavigationItem(R.drawable.wetchat_red, "大饱眼福"))
+                .setFirstSelectedPosition(2)
                 .initialise();
         //bottomNaigationBar的页签切换事件
         bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
@@ -227,28 +231,37 @@ public class ShouyeActivity extends AppCompatActivity {
             public void onTabSelected(int i) {
                 switch (i) {
                     case 0: {
-                        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.ll_content, fragment);
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.ll_content, jqFragment);
+                        llContent.setBackgroundColor(Color.TRANSPARENT);
+                        tvFristtoast.setVisibility(View.GONE);
+
                         transaction.commit();
                         break;
                     }
                     case 1: {
-                        android.support.v4.app.FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                        FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
                         transaction1.replace(R.id.ll_content, wxFragment);
+                        llContent.setBackgroundColor(Color.TRANSPARENT);
+                        tvFristtoast.setVisibility(View.GONE);
                         transaction1.commit();
+
 
                         break;
                     }
                     case 2: {
-                        android.support.v4.app.FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
-                        transaction2.commit();
+                        FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
+                        llContent.setBackgroundColor(Color.TRANSPARENT);
                         transaction2.replace(R.id.ll_content, fragment);
-
+                        tvFristtoast.setVisibility(View.GONE);
+                        transaction2.commit();
                         break;
                     }
                     case 3: {
-                        android.support.v4.app.FragmentTransaction transaction3 = getSupportFragmentManager().beginTransaction();
+                        FragmentTransaction transaction3 = getSupportFragmentManager().beginTransaction();
+                        llContent.setBackgroundColor(Color.TRANSPARENT);
                         transaction3.replace(R.id.ll_content, wxFragments);
+                        tvFristtoast.setVisibility(View.GONE);
                         transaction3.commit();
 
                         break;
@@ -272,8 +285,6 @@ public class ShouyeActivity extends AppCompatActivity {
         });
 
     }
-
-
 
 
 }

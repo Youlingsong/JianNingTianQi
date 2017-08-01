@@ -9,7 +9,9 @@ import com.example.lenovo.jianningtianqi.db.Country;
 import com.example.lenovo.jianningtianqi.db.Province;
 import com.example.lenovo.jianningtianqi.entity.Answer_message;
 import com.example.lenovo.jianningtianqi.entity.Girl_message;
+import com.example.lenovo.jianningtianqi.entity.JiQiRen_message;
 import com.example.lenovo.jianningtianqi.entity.Joke_message;
+import com.example.lenovo.jianningtianqi.entity.NeiHan_message;
 import com.example.lenovo.jianningtianqi.entity.QQ_message;
 import com.example.lenovo.jianningtianqi.entity.Weather_message;
 import com.google.gson.Gson;
@@ -151,6 +153,29 @@ public class Utility {
             Log.d(TAG, "handleAnser: Data");
             Gson gson = new Gson();
             Weather_message bean = gson.fromJson(Data,Weather_message.class);
+            return bean;
+        }
+        return null;
+    }
+    public static JiQiRen_message handJiQiRenmessge(String response) {
+
+        if (!TextUtils.isEmpty(response)) {
+            String Data = response;
+            Log.d(TAG, "handleAnser: Data");
+            Gson gson = new Gson();
+            JiQiRen_message  bean = gson.fromJson(Data,JiQiRen_message .class);
+            return bean;
+        }
+        return null;
+    }
+
+    public static NeiHan_message handNeihanmessage(String response) {
+
+        if (!TextUtils.isEmpty(response)) {
+            String Data = response;
+            Log.d(TAG, "handleAnser: Data");
+            Gson gson = new Gson();
+            NeiHan_message  bean = gson.fromJson(Data,NeiHan_message .class);
             return bean;
         }
         return null;

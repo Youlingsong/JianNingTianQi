@@ -153,10 +153,11 @@ public class WxFragments extends Fragment {
                     girl_message = Utility.handleGirlmessage(responseText);
                     bean = girl_message.getNewslist().get(i);
                     Log.d(TAG, "onResponse: beannnnnn" + bean.toString());
-                    list.add(bean);
+
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            list.add(bean);
                             myadapter.notifyDataSetChanged();
                         }
                     });

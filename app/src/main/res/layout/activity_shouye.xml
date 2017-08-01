@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/dl"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -53,7 +54,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:id="@+id/ll_content">
+                android:id="@+id/ll_content"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_fristtoast"
+                    android:gravity="center"
+                    android:text="欢迎使用app"/>
 
 
             </LinearLayout>
@@ -61,6 +69,7 @@
             <com.ashokvarma.bottomnavigation.BottomNavigationBar
                 android:id="@+id/bottom_navigation_bar"
                 android:layout_width="match_parent"
+                android:background="@color/orange"
                 android:layout_alignParentBottom="true"
                 android:layout_height="wrap_content"/>
         </RelativeLayout>
@@ -74,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/wechat_green"
+        android:background="#3E97FA"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
 

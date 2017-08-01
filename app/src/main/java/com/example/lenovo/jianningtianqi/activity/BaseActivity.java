@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.lenovo.jianningtianqi.R;
 import com.example.lenovo.jianningtianqi.view.CustomToast;
 import com.umeng.message.PushAgent;
 
@@ -59,6 +60,7 @@ public class BaseActivity extends AppCompatActivity {
                // Toast.makeText(context, "网络可用", Toast.LENGTH_SHORT).show();
             }else {
                 CustomToast.showToast("亲，请打开网络哦，开启幸福大门");
+                setContentView(R.layout.activity_test);
             }
         }
     }

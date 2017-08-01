@@ -195,6 +195,7 @@ public class WeatherActivity extends BaseActivity {
             @Override
             public void onRefresh() {
                 initData();
+                loadImage();
             }
         });
 
@@ -255,6 +256,6 @@ public class WeatherActivity extends BaseActivity {
 
     @OnClick(R.id.imgmore)
     public void onClick() {
-        drawerLayout.openDrawer(GravityCompat.START);
+        drawerLayout.openDrawer(5);
     }
 }

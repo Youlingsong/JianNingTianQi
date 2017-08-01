@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.lenovo.jianningtianqi.R;
 
@@ -12,7 +13,7 @@ import com.example.lenovo.jianningtianqi.R;
  * Created by lenovo on 2017/7/14.
  */
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends AppCompatActivity {
     private boolean timeOver = false;
     public static final String TAG_EXIT = "exit";
 
